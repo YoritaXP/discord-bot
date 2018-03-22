@@ -20,9 +20,10 @@ def getbalance(client, message):
         balance = float(rpc.getbalance(id))
 
     print(balance)
-    responce = discord.Embed(title='Bitcoin balance', colour=0xDEADBF)
+    user = '<@{}>'.format(id)
+    mes = discord.Embed(title='Bitcoin balance', colour=0xDEADBF)
     
-    responce.add_field(name="Address : ", value=address, inline=False)
-    responce.add_field(name="user : ", value=message.author.name, inline=True)
-    responce.add_field(name="btc : ", value=balance, inline=True)
-    return responce
+    mes.add_field(name="Address : ", value=address, inline=False)
+    mes.add_field(name="user : ", value=message.author.name, inline=True)
+    mes.add_field(name="btc : ", value=balance, inline=True)
+    return user, mes

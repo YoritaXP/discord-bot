@@ -47,7 +47,8 @@ async def getMessage(client, message):
         await client.send_message(message.channel, embed=responce)
 
     if message.content.startswith("!balance"):
-        responce = function.balance.getbalance(client, message)
+        user,mes = function.balance.getbalance(client, message)
+        await client.send_message(message.channel, user)
         await client.send_message(message.channel, embed=responce)
 
     function.debug.exp(client, message)
